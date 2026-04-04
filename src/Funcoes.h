@@ -18,32 +18,37 @@ struct pontosReferencias{
     float y;
 };
 
-// ===== LEITURA =====
+// LEITURA 
 vector<individuo> LerIndividuos(ifstream& arquivo, int quantidade);
 void LerParametros(ifstream& arquivo, int& qtdIndividuos, int& geracoes, float& probMutacao);
 
-// ===== ACESSO =====
+//PRINTAR
+void PrintTop2(const vector<individuo>& populacao);
+void PrintPopulacao(const vector<individuo>& populacao);
+void PrintTop2Arquivo(ofstream &arq, vector<individuo>& pop, int geracao);
+//  ACESSO 
 individuo PegarIndividuo(const vector<individuo>& populacao, int indice);
 pontosReferencias PegarPonto(const vector<pontosReferencias>& ptsmatriz, int indice);
 
-// ===== GERAÇÃO =====
+//GERAÇÃO 
 vector<pontosReferencias> GerarPontos(int quantidade, int seed);
 
-// ===== ERRO =====
+//  ERRO 
 float calcularErroUnitario(pontosReferencias pontoref, individuo individuoteste);
 void mediaErro(const vector<pontosReferencias>& ptsmatriz, individuo individuoPteste);
 
-// ===== ORDENAÇÃO =====
+//  ORDENAÇÃO
 bool comparar(individuo x, individuo y);
 vector<individuo> PopOrdenadaPMedia(const vector<individuo>& populacao);
 void descartarOsPiores(vector<individuo>& populacao);
 
-// ===== GENÉTICO =====
+//GENÉTICO
 void SelecaoNatural(vector<individuo>& populacao, float probabilidademutacao);
 individuo Crossover(individuo mae, individuo pai);
 individuo Mutacao(individuo individuoPmutacao);
+vector<individuo>  Elitismo(vector<individuo>& populacaoAntiga);
 
-// ===== EXECUÇÃO =====
-void analisar(vector<individuo>& populacao, vector<pontosReferencias>& ptsmatriz, float probabilidadeMutacao);
+//  EXECUÇÃO 
+void analisar(vector<individuo>& populacao,vector<pontosReferencias>& ptsmatriz,float probabilidadeMutacao,ofstream &arquivo, int geracao);
 
 #endif
