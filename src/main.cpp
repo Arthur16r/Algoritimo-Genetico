@@ -9,7 +9,7 @@ struct Posicao {
 };
 int main() {
     srand(1);
-   ifstream arquivo("input.data");
+   ifstream arquivo("src/input.data");
    ofstream arquivoSai("output.data");
    if(!arquivo){
     cout << "Erro ao abrir arquivo!" << endl;

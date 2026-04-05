@@ -162,8 +162,6 @@ individuo Crossover(individuo mae,individuo pai){
 individuo Mutacao(individuo individuoPmutacao){
     int sorte = rand() % 2;
     float variacao = randomFloat(-1.0, 1.0);
-    float a_antes = individuoPmutacao.a;
-    float b_antes = individuoPmutacao.b;
     switch(sorte){
         case 0:
             individuoPmutacao.a +=variacao;
