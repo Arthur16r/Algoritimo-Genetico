@@ -1,7 +1,7 @@
-Algoritmo Genético para Regressão Linear
+**Algoritmo Genético para Regressão Linear**
 Este projeto foi desenvolvido como parte de um trabalho da faculdade. O objetivo é usar um algoritmo genético para encontrar os coeficientes a e b de uma reta (do tipo y = a*x + b) que melhor se ajusta a um conjunto de pontos de referência. Em outras palavras, o algoritmo tenta aprender uma função linear a partir de exemplos.
 
-Como o algoritmo funciona
+**Como o algoritmo funciona**
 O problema é tratado como uma evolução de indivíduos. Cada indivíduo representa uma possível solução, ou seja, um par de coeficientes a e b. A qualidade de um indivíduo é medida pelo erro quadrático médio entre os valores previstos pela reta e os valores reais dos pontos de referência. Quanto menor o erro, melhor o indivíduo.
 
 O processo evolutivo segue os passos clássicos de um algoritmo genético:
@@ -18,7 +18,7 @@ Elitismo: os dois melhores indivíduos de cada geração são preservados automa
 
 O algoritmo executa esse ciclo por um número definido de gerações. A cada geração, os dois melhores indivíduos são salvos em um arquivo de saída.
 
-Estrutura do projeto
+**Estrutura do projeto**
 Os arquivos estão organizados da seguinte forma:
 
 main.cpp: contém a função principal que controla a execução do algoritmo. Ele lê os parâmetros iniciais, gera os pontos de referência e executa o loop de gerações.
@@ -27,7 +27,7 @@ Funcoes.h: declara todas as estruturas de dados e funções usadas no projeto. F
 
 Funcoes.cpp: implementa as funções declaradas no cabeçalho. Aqui está a lógica real do algoritmo genético, incluindo avaliação, seleção, cruzamento e mutação.
 
-Como usar
+**Como usar**
 Compile os arquivos. Se estiver usando g++, o comando seria algo como:
 
 g++ main.cpp Funcoes.cpp -o algoritmo_genetico
@@ -57,7 +57,7 @@ Execute o programa. Durante a execução, nenhuma mensagem será mostrada no ter
 
 O programa gera um arquivo output.data contendo, para cada geração, os dois melhores indivíduos e seus respectivos erros.
 
-Observações sobre o código
+**Observações sobre o código**
 Os pontos de referência que a reta deve aproximar são gerados aleatoriamente dentro do intervalo de 0 a 14 tanto para x quanto para y. O código usa uma semente fixa (valor 1) para garantir que os resultados sejam reproduzíveis. Se quiser variar os pontos, basta alterar a semente na chamada da função GerarPontos dentro do main.
 
 O cruzamento entre dois indivíduos é feito de forma simples: um descendente herda o coeficiente a de um dos pais e o coeficiente b do outro. A escolha de qual pai doa qual coeficiente é aleatória. A mutação adiciona um valor entre -1 e 1 ao coeficiente a ou b, escolhido aleatoriamente.
@@ -66,10 +66,35 @@ O algoritmo implementa uma proteção para evitar que o cruzamento gere filhos i
 
 A função de elitismo garante que os dois melhores indivíduos nunca sejam perdidos. Os demais indivíduos da população anterior (os piores) são descartados para dar lugar aos novos descendentes.
 
-Possíveis limitações
+**Possíveis limitações**
 O código funciona bem para demonstrar o conceito de algoritmo genético, mas algumas escolhas podem ser melhoradas. A geração dos pontos de referência é fixa e os limites dos coeficientes não são restringidos, o que pode fazer com que valores muito altos ou muito baixos apareçam. Além disso, a taxa de mutação é aplicada sobre a população inteira de forma simples, sem um mecanismo mais refinado como mutação adaptativa.
 
 Para um trabalho de faculdade, esses pontos não chegam a ser problemas, pois o foco é entender o funcionamento do algoritmo genético e não necessariamente otimizar ao máximo a regressão. Para isso existem métodos tradicionais como mínimos quadrados.
+
+**Experimentos realizados**
+
+Para avaliar o comportamento do algoritmo genético, foram realizados testes com diferentes quantidades de gerações, mantendo os demais parâmetros constantes.
+
+Os valores testados foram:
+
+1.000 gerações
+10.000 gerações
+100.000 gerações
+1.000.000 de gerações
+
+Durante os experimentos, observou-se que o algoritmo melhora progressivamente a qualidade das soluções ao longo das gerações, reduzindo o erro quadrático médio.
+
+O melhor resultado encontrado foi:
+
+Fitness (erro quadrático médio mínimo): 12.4503
+
+Esse valor corresponde ao melhor indivíduo encontrado para o conjunto de pontos gerados aleatoriamente.
+
+Também foi possível perceber que:
+
+O ganho de qualidade diminui conforme o número de gerações aumenta (retornos decrescentes)
+Após certo número de gerações, o algoritmo tende a convergir para soluções muito próximas
+O elitismo contribui significativamente para manter boas soluções ao longo da execução
 
 Considerações finais
 Este código foi escrito com foco na clareza. Cada função tem uma responsabilidade bem definida e os nomes escolhidos ajudam a entender o que está acontecendo. Se você estiver estudando algoritmos genéticos, este projeto pode servir como um bom ponto de partida para entender conceitos como representação de soluções, função de aptidão, seleção, cruzamento e mutação.
