@@ -86,17 +86,17 @@ Durante os experimentos, observou-se que o algoritmo melhora progressivamente a 
 
 O melhor resultado encontrado foi:
 
-Fitness (erro quadrático médio mínimo): 12.4503
+**Fitness (erro quadrático médio mínimo): 12.4503**
 
 Esse valor corresponde ao melhor indivíduo encontrado para o conjunto de pontos gerados aleatoriamente.
 
-Também foi possível perceber que:
+**Também foi possível perceber que:**
 
 O ganho de qualidade diminui conforme o número de gerações aumenta (retornos decrescentes)
 Após certo número de gerações, o algoritmo tende a convergir para soluções muito próximas
 O elitismo contribui significativamente para manter boas soluções ao longo da execução
 
-Considerações finais
+**Considerações finais**
 Este código foi escrito com foco na clareza. Cada função tem uma responsabilidade bem definida e os nomes escolhidos ajudam a entender o que está acontecendo. Se você estiver estudando algoritmos genéticos, este projeto pode servir como um bom ponto de partida para entender conceitos como representação de soluções, função de aptidão, seleção, cruzamento e mutação.
 
 Se precisar adaptar o código para outros problemas, a parte mais trabalhosa será modificar a estrutura do indivíduo e a função que calcula o erro. O resto da estrutura do algoritmo genético pode ser reaproveitada.
